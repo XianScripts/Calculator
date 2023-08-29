@@ -24,5 +24,7 @@ console.log(divide(5, 10));
 
 
 // operator function
+let operator; 
+console.log(operator);
 
 // if operator = x y z xA => call this function 
