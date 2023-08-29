@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    background-color: beige;
+}
+
+#container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+h1 {
+    display: none;
+}
+
+.calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+}

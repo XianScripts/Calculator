@@ -24,7 +24,7 @@ function divide(num1, num2) {
 
 
 // operator function
-let operator = '*'; 
+let operator = '/'; 
 // console.log(operator);
 
 function operate(operator, num1, num2) {
