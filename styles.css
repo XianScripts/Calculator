@@ -41,12 +41,22 @@ h1 {
 
 .buttonContainer {
     display: flex;
+    padding-left: 3px;
+    justify-content: center;
+    flex-direction: column;
     border: 2px solid red;
     flex-basis: 95%;
     height: 75%;
     
 }
+button {
+    width: 100px;
+    height: 75px;
+}
 .buttons {
     width: 20px;
     height: 20px;
+}
+.zero {
+    width: 205px;
 }
