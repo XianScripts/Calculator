@@ -24,7 +24,7 @@ function divide(num1, num2) {
 
 
 // operator function
-let operator = '/'; 
+let operator; 
 // console.log(operator);
 
 function operate(operator, num1, num2) {
@@ -56,21 +56,72 @@ console.log(display)
 
 
 //Grabbing numbers
+let num1;
+let num2;
 
 let buttonContainer = document.querySelector('.buttonContainer');
 
 buttonContainer.addEventListener('click', (e) => {
     console.log(e.target.textContent);
     let var1 = e.target.textContent;
-    display.textContent = var1;
+    // display.textContent = var1;
+    if (var1 === "0" || "1" || "2" || "3" || "4" || "5" || "6" || 
+    "7" || "8" || "9" || ".") {
+        display.textContent += var1;
+        if (display.textContent.length >= 8) {
+            const value = var1
+            display.textContent = value;
+        }
+
+    }
+    // Plus module
+    if (var1 === "+") {
+        operator = "+"
+        num1 = display.textContent.slice(0, -1);
+        num1 = +num1;
+        console.log(num1);
+        display.textContent = '';
+        if (var1 === "=") {
+            console.log('working');
+            num2 = display.textContent.slice(0, -1);
+            display.textContent = '';
+            console.log(operate(operator, num1, num2));
+        }
+    }
+    if (var1 === "=") {
+        console.log('working');
+        num2 = display.textContent.slice(0, -1);
+        num2 = +num2;
+        display.textContent = '';
+        console.log(operate(operator, num1, num2));
+        display.textContent = operate(operator, num1, num2);
+        
+        
+    }
+    
+    // Clear button
+    if (var1 === 'AC') {
+        display.textContent = '';
+        num1 = ''
+        num2 = ''
+        operator = ''
+    }
 
 
 });
 
 
 
-
-
+function numFunc() {
+    if (var1 === "0" || "1" || "2" || "3" || "4" || "5" || "6" || 
+    "7" || "8" || "9" || ".") {
+        display.textContent += var1;
+        if (display.textContent.length >= 8) {
+            const value = var1
+            display.textContent = value;
+        }
+}
+}
 
 
 
