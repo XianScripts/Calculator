@@ -95,6 +95,14 @@ buttonContainer.addEventListener('click', (e) => {
         display.textContent = '';
         console.log(operate(operator, num1, num2));
         display.textContent = operate(operator, num1, num2);
+        let i = 0;
+        buttonContainer.addEventListener('click', (e) => {
+            if (var1 === "0" || "1" || "2" || "3" || "4" || "5" || "6" || 
+    "7" || "8" || "9" || ".") {
+        
+    }
+        })
+
         
         
     }
@@ -125,7 +133,13 @@ function numFunc() {
 
 
 
-
+function clearCal() {
+    display.textContent = '';
+    num1 = ''
+    num2 = ''
+    operator = ''
+    console.log('cleared');
+}
 
 
 
