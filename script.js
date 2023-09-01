@@ -87,13 +87,36 @@ buttonContainer.addEventListener('click', (e) => {
         num1 = +num1;
         console.log(num1);
         display.textContent = '';
-        // if (var1 === "=") {
-        //     console.log('working');
-        //     num2 = display.textContent.slice(0, -1);
-        //     display.textContent = '';
-        //     console.log(operate(operator, num1, num2));
-        // }
     }
+
+    // Subtract module
+    if (var1 === "-") {
+        operator = "-"
+        num1 = display.textContent.slice(0, -1);
+        num1 = +num1;
+        console.log(num1);
+        display.textContent = '';
+    }
+
+    // Multiply module
+    if (var1 === "*") {
+        operator = "*"
+        num1 = display.textContent.slice(0, -1);
+        num1 = +num1;
+        console.log(num1);
+        display.textContent = '';
+    }
+
+    // Division module
+    if (var1 === "/") {
+        operator = "/"
+        num1 = display.textContent.slice(0, -1);
+        num1 = +num1;
+        console.log(num1);
+        display.textContent = '';
+    }
+
+    // Equal module
     if (var1 === "=") {
         console.log('working');
         num2 = display.textContent.slice(0, -1);
@@ -131,7 +154,7 @@ function numFunc() {
 }
 
 
-
+// Clear calculator function
 function clearCal() {
     display.textContent = '';
     num1 = ''
