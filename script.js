@@ -58,7 +58,7 @@ console.log(display)
 //Grabbing numbers
 let num1;
 let num2;
-let calcComplete = false;
+let calComplete = false;
 
 let buttonContainer = document.querySelector('.buttonContainer');
 
@@ -66,13 +66,15 @@ buttonContainer.addEventListener('click', (e) => {
     console.log(e.target.textContent);
     let var1 = e.target.textContent;
     // display.textContent = var1;
-    if (var1 === "0" || var1 === "1" || var1 === "2" || var1 === "3" || var1 === "4" || var1 === "5" || var1 === "6" || 
-    var1 === "7" || var1 === "8" || var1 === "9" || var1 === ".") {
+    if (var1 === "0" || "1" || "2" || "3" || "4" || "5" || "6" || 
+    "7" || "8" || "9" || ".") {
         display.textContent += var1;
-        if (calcComplete === true) {
-            clearCal()
+        if (calComplete === true) {
+            clearCal();
+            calComplete = false;
+            display.textContent = var1
         }
-        else if (display.textContent.length >= 8) {
+        if (display.textContent.length >= 8) {
             const value = var1
             display.textContent = value;
         }
@@ -85,12 +87,12 @@ buttonContainer.addEventListener('click', (e) => {
         num1 = +num1;
         console.log(num1);
         display.textContent = '';
-        if (var1 === "=") {
-            console.log('working');
-            num2 = display.textContent.slice(0, -1);
-            display.textContent = '';
-            console.log(operate(operator, num1, num2));
-        }
+        // if (var1 === "=") {
+        //     console.log('working');
+        //     num2 = display.textContent.slice(0, -1);
+        //     display.textContent = '';
+        //     console.log(operate(operator, num1, num2));
+        // }
     }
     if (var1 === "=") {
         console.log('working');
@@ -99,10 +101,8 @@ buttonContainer.addEventListener('click', (e) => {
         display.textContent = '';
         console.log(operate(operator, num1, num2));
         display.textContent = operate(operator, num1, num2);
-        console.log('num1 = ' + num1);
-        console.log('num2 = ' + num2);
-        console.log('var1 = ' + var1);   
-        calcComplete = true;   
+        calComplete = true;
+      
         
     }
     
