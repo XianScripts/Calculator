@@ -29,6 +29,9 @@ let operator;
 
 function operate(operator, num1, num2) {
     if (operator === '+') {
+        if (num1 === 420 && num2 === 69 || num1 === 69 && num2 === 420) {
+            return ('Funny number');
+        }
         return add(num1, num2);
     };
     if (operator === '-') {
@@ -38,6 +41,9 @@ function operate(operator, num1, num2) {
         return multiply(num1, num2);
     };
     if (operator === '/') {
+        if (num1 === 0 || num2 === 0) {
+            return ('No Can Do!');
+        }
         return divide(num1, num2);
     };
 };
@@ -59,6 +65,7 @@ console.log(display)
 let num1;
 let num2;
 let calComplete = false;
+const maxLength = 10;
 
 let buttonContainer = document.querySelector('.buttonContainer');
 
@@ -74,7 +81,14 @@ buttonContainer.addEventListener('click', (e) => {
             calComplete = false;
             display.textContent = var1
         }
-        if (display.textContent.length >= 8) {
+        if (display.textContent.length === maxLength) {
+            if ((var1 === "0") || (var1 === "1") || (var1 === "2") || (var1 === "3") || (var1 === "4") || (var1 === "5") || (var1 === "6") || 
+            (var1 === "7") || (var1 === "8") || (var1 === "9") || (var1 === ".")) {
+                const value = var1
+                display.textContent = value;
+                buttonContainer.disabled = true;
+                console.log('Limit test');
+            }
             const value = var1
             display.textContent = value;
         }
@@ -164,7 +178,7 @@ function clearCal() {
 }
 
 
-
+numVar = (0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || '.');
 
 // const buttonMapping = {
 //     'btn-0' : 'zero',
