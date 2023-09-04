@@ -17,6 +17,10 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+function percent(num1) {
+    return num1 / 100
+}
+
 // console.log(add(5, 10));
 // console.log(subtract(10, 5));
 // console.log(multiply(5, 10));
@@ -65,6 +69,7 @@ console.log(display)
 let num1;
 let num2;
 let calComplete = false;
+let percentActive = false;
 const maxLength = 10;
 
 let buttonContainer = document.querySelector('.buttonContainer');
@@ -81,16 +86,16 @@ buttonContainer.addEventListener('click', (e) => {
             calComplete = false;
             display.textContent = var1
         }
+        // Max length of 10 characters
         if (display.textContent.length === maxLength) {
             if ((var1 === "0") || (var1 === "1") || (var1 === "2") || (var1 === "3") || (var1 === "4") || (var1 === "5") || (var1 === "6") || 
             (var1 === "7") || (var1 === "8") || (var1 === "9") || (var1 === ".")) {
-                const value = var1
-                display.textContent = value;
-                buttonContainer.disabled = true;
+                buttonContainer.addEventListener('click', function(e) {
+                    display.textContent = display.textContent.slice(0, 10);
+                })
                 console.log('Limit test');
             }
-            const value = var1
-            display.textContent = value;
+            
         }
 
     }
@@ -101,6 +106,7 @@ buttonContainer.addEventListener('click', (e) => {
         num1 = +num1;
         console.log(num1);
         display.textContent = '';
+        percentActive = true;
     }
 
     // Subtract module
@@ -110,6 +116,7 @@ buttonContainer.addEventListener('click', (e) => {
         num1 = +num1;
         console.log(num1);
         display.textContent = '';
+        percentActive = true;
     }
 
     // Multiply module
@@ -119,16 +126,59 @@ buttonContainer.addEventListener('click', (e) => {
         num1 = +num1;
         console.log(num1);
         display.textContent = '';
+        percentActive = true;
     }
 
     // Division module
     if (var1 === "/") {
-        operator = "/"
+        operator = "/";
         num1 = display.textContent.slice(0, -1);
         num1 = +num1;
         console.log(num1);
         display.textContent = '';
+        percentActive = true;
     }
+
+    // Percentage module
+
+    if (var1 === '%') {
+        if(percentActive !== true) {
+            num1 = display.textContent.slice(0, -1);
+            num1 = +num1;
+            num1 = percent(num1);
+            display.textContent = num1;
+            console.log(num1);
+            console.log(num2);
+            percentActive = false
+        }
+        if (percentActive === true) {
+            num2 = display.textContent.slice(0, -1);
+            num2 = +num2;
+            num2 = percent(num2);
+            display.textContent = num2;
+            console.log(num1);
+            console.log(num2);
+            percentActive = false
+        }
+    }
+    // if ((var1 === "%") && (num2 === undefined)) {
+    //     num1 = display.textContent.slice(0, -1);
+    //     num1 = +num1;
+    //     num1 = percent(num1);
+    //     display.textContent = num1;
+    //     console.log(num1);
+    //     percentActive = true;
+    //     // console.log(num2);
+    // }
+    // if ((var1 === "%") && (num2 === !undefined)) {
+    //     num2 = display.textContent.slice(0, -1);
+    //     num2 = +num2;
+    //     num2 = percent(num2);
+    //     display.textContent = num2;
+    //     console.log(num2);
+    //     percentActive = true;
+    // } 
+
 
     // Equal module
     if (var1 === "=") {
@@ -139,7 +189,6 @@ buttonContainer.addEventListener('click', (e) => {
         console.log(operate(operator, num1, num2));
         display.textContent = operate(operator, num1, num2);
         calComplete = true;
-      
         
     }
     
@@ -153,20 +202,6 @@ buttonContainer.addEventListener('click', (e) => {
 
 
 });
-
-
-
-function numFunc() {
-    if (var1 === "0" || "1" || "2" || "3" || "4" || "5" || "6" || 
-    "7" || "8" || "9" || ".") {
-        display.textContent += var1;
-        if (display.textContent.length >= 8) {
-            const value = var1
-            display.textContent = value;
-        }
-}
-}
-
 
 // Clear calculator function
 function clearCal() {
