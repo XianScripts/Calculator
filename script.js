@@ -194,24 +194,6 @@ buttonContainer.addEventListener('click', (e) => {
         }
 
     }
-    /* 
-        plusMinus state = false
-
-        if plusMinus state === false {
-            num1 = -num1
-            onClick plusMinus state = true
-        }
-        
-
-
-        if plusMinus state === true {
-            num1 = num1 * -1
-            onclick plusMinus state = false;
-        }
-
-    
-    */
-
 
 
     // Equal module
@@ -245,28 +227,3 @@ function clearCal() {
     operator = ''
     console.log('cleared');
 }
-
-
-numVar = (0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || '.');
-
-// const buttonMapping = {
-//     'btn-0' : 'zero',
-//     'btn-1' : 1,
-//     'btn-2' : 2,
-//     'btn-3' : 3,
-//     'btn-4' : 4,
-//     'btn-5' : 5,
-//     'btn-6' : 6,
-//     'btn-7' : 7,
-//     'btn-8' : 8,
-//     'btn-9' : 9,
-//     'btn-AC' : 'AC',
-//     'btn-plusMinus' : 'plusMinus',
-//     'btn-mod' : 'mod',
-//     'btn-divide' : 'divide',
-//     'btn-multi' : 'multi',
-//     'btn-subtract' : 'subtract',
-//     'btn-plus' : 'plus',
-//     'btn-dot' : 'dot',
-//     'btn-equal' : 'equal',
-// }
