@@ -21,6 +21,10 @@ function percent(num1) {
     return num1 / 100
 }
 
+function plusMinusOp(num1) {
+    return num1 * -1;
+}
+
 // console.log(add(5, 10));
 // console.log(subtract(10, 5));
 // console.log(multiply(5, 10));
@@ -70,12 +74,13 @@ let num1;
 let num2;
 let calComplete = false;
 let percentActive = false;
+let plusMinus = false;
 const maxLength = 10;
 
 let buttonContainer = document.querySelector('.buttonContainer');
 
 buttonContainer.addEventListener('click', (e) => {
-    console.log(e.target.textContent);
+    // console.log(e.target.textContent);
     let var1 = e.target.textContent;
     // display.textContent = var1;
     if (var1 === "0" || "1" || "2" || "3" || "4" || "5" || "6" || 
@@ -107,6 +112,7 @@ buttonContainer.addEventListener('click', (e) => {
         console.log(num1);
         display.textContent = '';
         percentActive = true;
+        plusMinus = true;
     }
 
     // Subtract module
@@ -117,6 +123,7 @@ buttonContainer.addEventListener('click', (e) => {
         console.log(num1);
         display.textContent = '';
         percentActive = true;
+        plusMinus = true;
     }
 
     // Multiply module
@@ -127,6 +134,7 @@ buttonContainer.addEventListener('click', (e) => {
         console.log(num1);
         display.textContent = '';
         percentActive = true;
+        plusMinus = true;
     }
 
     // Division module
@@ -137,6 +145,7 @@ buttonContainer.addEventListener('click', (e) => {
         console.log(num1);
         display.textContent = '';
         percentActive = true;
+        plusMinus = true;
     }
 
     // Percentage module
@@ -161,23 +170,48 @@ buttonContainer.addEventListener('click', (e) => {
             percentActive = false
         }
     }
-    // if ((var1 === "%") && (num2 === undefined)) {
-    //     num1 = display.textContent.slice(0, -1);
-    //     num1 = +num1;
-    //     num1 = percent(num1);
-    //     display.textContent = num1;
-    //     console.log(num1);
-    //     percentActive = true;
-    //     // console.log(num2);
-    // }
-    // if ((var1 === "%") && (num2 === !undefined)) {
-    //     num2 = display.textContent.slice(0, -1);
-    //     num2 = +num2;
-    //     num2 = percent(num2);
-    //     display.textContent = num2;
-    //     console.log(num2);
-    //     percentActive = true;
-    // } 
+
+    // Plus-Minus module
+
+    if (var1 === '+/-') {
+        if (plusMinus === false) {
+            num1 = display.textContent.slice(0, -3);
+            num1 = +num1;
+            num1 = plusMinusOp(num1);
+            console.log(num1);
+            console.log(var1);
+            console.log(plusMinusOp(50));
+            display.textContent = num1;
+        }
+        if (plusMinus === true) {
+            num2 = display.textContent.slice(0, -3);
+            num2 = +num2;
+            num2 = plusMinusOp(num2);
+            console.log(num2);
+            console.log(var1);
+            console.log(plusMinusOp(50));
+            display.textContent = num2;
+        }
+
+    }
+    /* 
+        plusMinus state = false
+
+        if plusMinus state === false {
+            num1 = -num1
+            onClick plusMinus state = true
+        }
+        
+
+
+        if plusMinus state === true {
+            num1 = num1 * -1
+            onclick plusMinus state = false;
+        }
+
+    
+    */
+
 
 
     // Equal module
