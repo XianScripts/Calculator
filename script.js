@@ -79,6 +79,7 @@ const maxLength = 10;
 
 let buttonContainer = document.querySelector('.buttonContainer');
 
+// Probably should do a forEach method next time on a nodelist of buttons ¯\_(ツ)_/¯
 buttonContainer.addEventListener('click', (e) => {
     // console.log(e.target.textContent);
     let var1 = e.target.textContent;
@@ -92,15 +93,8 @@ buttonContainer.addEventListener('click', (e) => {
             display.textContent = var1
         }
         // Max length of 10 characters
-        if (display.textContent.length === maxLength) {
-            if ((var1 === "0") || (var1 === "1") || (var1 === "2") || (var1 === "3") || (var1 === "4") || (var1 === "5") || (var1 === "6") || 
-            (var1 === "7") || (var1 === "8") || (var1 === "9") || (var1 === ".")) {
-                buttonContainer.addEventListener('click', function(e) {
-                    display.textContent = display.textContent.slice(0, 10);
-                })
-                console.log('Limit test');
-            }
-            
+        if (display.textContent.length > 10) {
+            display.textContent = display.textContent.slice(0, 12);
         }
 
     }
@@ -204,7 +198,7 @@ buttonContainer.addEventListener('click', (e) => {
         display.textContent = '';
         console.log(operate(operator, num1, num2));
         display.textContent = operate(operator, num1, num2);
-        calComplete = true;
+        // calComplete = true;
         
     }
     
