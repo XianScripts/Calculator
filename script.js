@@ -204,6 +204,6 @@ function clearCal() {
 
 function maxLength() {
     if (display.textContent.length >= 10) {
-        display.textContent = display.textContent.slice(0, 10);
+        display.textContent = display.textContent.slice(0, 12);
     }
 }
