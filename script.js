@@ -1,6 +1,5 @@
 // Calculation functions
 
-
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -25,15 +24,8 @@ function plusMinusOp(num1) {
     return num1 * -1;
 }
 
-// console.log(add(5, 10));
-// console.log(subtract(10, 5));
-// console.log(multiply(5, 10));
-// console.log(divide(5, 10));
-
-
 // operator function
-let operator; 
-// console.log(operator);
+let operator = null; 
 
 function operate(operator, num1, num2) {
     if (operator === '+') {
@@ -56,26 +48,17 @@ function operate(operator, num1, num2) {
     };
 };
 
-console.log(operate(operator, 5, 10));
-// if operator = x y z xA => call this function 
-
-
-
-
 // User interface
 
 // Display output
 let display = document.querySelector('.displayText');
-console.log(display)
-
 
 //Grabbing numbers
-let num1;
-let num2;
+let num1 = null;
+let num2 = null;
 let calComplete = false;
 let percentActive = false;
 let plusMinus = false;
-const maxLength = 10;
 
 let buttonContainer = document.querySelector('.buttonContainer');
 
@@ -93,9 +76,7 @@ buttonContainer.addEventListener('click', (e) => {
             display.textContent = var1
         }
         // Max length of 10 characters
-        if (display.textContent.length > 10) {
-            display.textContent = display.textContent.slice(0, 12);
-        }
+        maxLength();
 
     }
     // Plus module
@@ -110,7 +91,7 @@ buttonContainer.addEventListener('click', (e) => {
     }
 
     // Subtract module
-    if (var1 === "-") {
+    else if (var1 === "-") {
         operator = "-"
         num1 = display.textContent.slice(0, -1);
         num1 = +num1;
@@ -121,7 +102,7 @@ buttonContainer.addEventListener('click', (e) => {
     }
 
     // Multiply module
-    if (var1 === "*") {
+    else if (var1 === "*") {
         operator = "*"
         num1 = display.textContent.slice(0, -1);
         num1 = +num1;
@@ -132,7 +113,7 @@ buttonContainer.addEventListener('click', (e) => {
     }
 
     // Division module
-    if (var1 === "/") {
+    else if (var1 === "/") {
         operator = "/";
         num1 = display.textContent.slice(0, -1);
         num1 = +num1;
@@ -143,7 +124,6 @@ buttonContainer.addEventListener('click', (e) => {
     }
 
     // Percentage module
-
     if (var1 === '%') {
         if(percentActive !== true) {
             num1 = display.textContent.slice(0, -1);
@@ -154,7 +134,7 @@ buttonContainer.addEventListener('click', (e) => {
             console.log(num2);
             percentActive = false
         }
-        if (percentActive === true) {
+        else if (percentActive === true) {
             num2 = display.textContent.slice(0, -1);
             num2 = +num2;
             num2 = percent(num2);
@@ -166,7 +146,6 @@ buttonContainer.addEventListener('click', (e) => {
     }
 
     // Plus-Minus module
-
     if (var1 === '+/-') {
         if (plusMinus === false) {
             num1 = display.textContent.slice(0, -3);
@@ -177,7 +156,7 @@ buttonContainer.addEventListener('click', (e) => {
             console.log(plusMinusOp(50));
             display.textContent = num1;
         }
-        if (plusMinus === true) {
+        else if (plusMinus === true) {
             num2 = display.textContent.slice(0, -3);
             num2 = +num2;
             num2 = plusMinusOp(num2);
@@ -189,7 +168,6 @@ buttonContainer.addEventListener('click', (e) => {
 
     }
 
-
     // Equal module
     if (var1 === "=") {
         console.log('working');
@@ -198,12 +176,14 @@ buttonContainer.addEventListener('click', (e) => {
         display.textContent = '';
         console.log(operate(operator, num1, num2));
         display.textContent = operate(operator, num1, num2);
+        maxLength();
+
         // calComplete = true;
         
     }
     
     // Clear button
-    if (var1 === 'AC') {
+    else if (var1 === 'AC') {
         display.textContent = '';
         num1 = ''
         num2 = ''
@@ -220,4 +200,10 @@ function clearCal() {
     num2 = ''
     operator = ''
     console.log('cleared');
+}
+
+function maxLength() {
+    if (display.textContent.length >= 10) {
+        display.textContent = display.textContent.slice(0, 10);
+    }
 }
